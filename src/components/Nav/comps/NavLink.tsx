@@ -10,13 +10,14 @@ const Div = styled.div`
 
   .title {
     margin: 0 10px;
+    color: white;
   }
 
   .marker-container {
     height: 3px;
     width: 100%;
     &__marker {
-      background-color: blue;
+      background-color: white;
       border-top-right-radius: 3px;
       border-top-left-radius: 3px;
       height: 100%;
