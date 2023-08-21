@@ -7,9 +7,8 @@ import useTranslation from '@/hooks/useTranslation';
 import { useRouter } from 'next/navigation';
 import useBreakpoints from '@/hooks/useBreakpoints';
 import { Sling } from 'hamburger-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MobileNav from './MobileNav/MobileNav';
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 const Div = styled.div`
   border: 1px solid red;
@@ -41,22 +40,21 @@ const Nav: React.FC<NavProps> = () => {
   const { translate } = useTranslation();
   const isMd = useBreakpoints('md');
 
-  const targetElement = useRef(document?.querySelector('body'));
+  // const targetElement = useRef(document?.querySelector('body'));
 
   useEffect(() => {
     if (!isMd) {
       setIsMobileMenuOpen(false);
-      clearAllBodyScrollLocks();
+      document.body.style.overflow = 'visible';
     } else {
     }
   }, [isMd]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
-      // @ts-ignore
-      disableBodyScroll(targetElement.current);
+      document.body.style.overflow = 'hidden';
     } else {
-      clearAllBodyScrollLocks();
+      document.body.style.overflow = 'visible';
     }
   }, [isMobileMenuOpen]);
 

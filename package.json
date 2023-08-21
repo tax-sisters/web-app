@@ -17,7 +17,6 @@
     "@types/node": "20.5.1",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
-    "body-scroll-lock": "^4.0.0-beta.0",
     "hamburger-react": "^2.5.0",
     "next": "13.4.19",
     "react": "18.2.0",
@@ -27,7 +26,6 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/body-scroll-lock": "^3.1.0",
     "@types/react-redux": "^7.1.25",
     "@types/styled-components": "^5.1.26",
     "prettier": "^3.0.2"

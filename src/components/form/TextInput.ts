@@ -23,7 +23,7 @@ export const TextInput = styled(TextField).attrs((p) => {
 
   input,
   textarea {
-    /* color: ${ThemeColors.PRUSSIAN_BLUE}; */
+    color: ${ThemeColors.PRIMARY};
   }
 
   textarea {
@@ -32,20 +32,20 @@ export const TextInput = styled(TextField).attrs((p) => {
 
   & input::placeholder,
   textarea::placeholder {
-    /* color: ${ThemeColors.PRUSSIAN_BLUE}; */
+    color: ${ThemeColors.PRIMARY};
     opacity: 0.7;
   }
 
   .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-    /* border: 1px solid ${({ error }) => (error ? ThemeColors.ERROR : ThemeColors.ALICE_BLUE)}; */
+    /* border: 1px solid ${({ error }) => (error ? ThemeColors.ERROR : ThemeColors.PRIMARY)}; */
     border-radius: 0px;
   }
   .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-    /* border: 1px solid ${({ error }) => (error ? ThemeColors.ERROR : ThemeColors.PRUSSIAN_BLUE)}; */
+    /* border: 1px solid ${({ error }) => (error ? ThemeColors.ERROR : ThemeColors.PRIMARY)}; */
     border-radius: 0px;
   }
   .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    /* border: 2px solid ${({ error }) => (error ? ThemeColors.ERROR : ThemeColors.PRUSSIAN_BLUE)}; */
+    /* border: 2px solid ${({ error }) => (error ? ThemeColors.ERROR : ThemeColors.PRIMARY)}; */
     border-radius: 0px;
   }
 
