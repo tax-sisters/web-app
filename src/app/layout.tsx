@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { MuiProvider, StateProvider, StyledProvider } from './_providers';
+import { MuiProvider, StateProvider, StyledProvider, PageLayout } from './_providers';
 
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
@@ -19,9 +19,11 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
         <MuiProvider>
           <StyledProvider>
             <StateProvider>
-              <Nav />
-              {children}
-              <Footer />
+              <PageLayout>
+                <Nav />
+                {children}
+                <Footer />
+              </PageLayout>
             </StateProvider>
           </StyledProvider>
         </MuiProvider>
