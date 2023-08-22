@@ -23,6 +23,20 @@ const Div = styled.div`
       height: 100%;
     }
   }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    margin: 0 0 20px 0;
+
+    .title {
+      font-size: 20px;
+    }
+
+    .marker-container {
+      height: 3px;
+      width: 150px;
+      margin: auto;
+    }
+  }
 `;
 
 interface NavLinkProps {
@@ -50,4 +64,3 @@ export const NavLink: React.FC<NavLinkProps> = ({ title, path }) => {
     </Div>
   );
 };
-

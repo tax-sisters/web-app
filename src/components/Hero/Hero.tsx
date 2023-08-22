@@ -1,36 +1,58 @@
 'use client';
-import { Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 import styled from 'styled-components';
 import Lottie from 'lottie-react';
 import heroAnimation from './hero.json';
+import { ThemeColors } from '@/util/theme';
+import Spacer from '../Spacer/Spacer';
+import { NAV_HEIGHT } from '../conf';
+import { Buttonas } from '../form';
 
 const Div = styled.div`
-  height: calc(100vh - 0px);
+  /* height: 700px; */
+  background-color: ${ThemeColors.SECTION_GRAY};
+  padding: 0 40px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgb(13, 191, 205);
-  background: linear-gradient(90deg, rgba(13, 191, 205, 1) 0%, rgba(10, 76, 173, 1) 100%);
+  .contents {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: 1.1fr 2fr;
+    /* grid-gap: 20px; */
 
-  color: white;
-  gap: 40px;
-
-  .animation {
-    max-width: 60%;
+    &__left {
+      /* border: 1px solid red; */
+    }
+    &__right {
+      /* border: 1px solid blue; */
+    }
   }
 `;
 
 const Hero = () => {
   return (
     <Div>
-      <Typography variant="h2">Hero section</Typography>
-      <div className="animation">
-        <Lottie animationData={heroAnimation} loop={true} />
-      </div>
+      <Spacer xs={NAV_HEIGHT} />
+      <Container>
+        <Spacer xs={65} />
+        <Typography fontSize={60} fontWeight={600}>
+          EMPOWERING YOUR FINANCES
+        </Typography>
+        <Spacer xs={26} />
+
+        <div className="contents">
+          <div className="contents__left">
+            <Typography fontSize={26}>Expert Accounting Services</Typography>
+            <Typography fontSize={26}>Tailored for You!</Typography>
+            <Spacer xs={60} />
+            <Buttonas>CONTACT US</Buttonas>
+          </div>
+          <div className="contents__right">
+            <Lottie animationData={heroAnimation} />
+          </div>
+        </div>
+      </Container>
     </Div>
   );
 };
 
 export default Hero;
-

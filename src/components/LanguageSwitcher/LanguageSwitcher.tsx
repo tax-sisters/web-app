@@ -13,19 +13,24 @@ const Div = styled.div`
 
 const Btn = styled.div<{ isSelected: boolean }>`
   height: 20px;
-  width: 30px;
+  width: 29px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   cursor: pointer;
   user-select: none;
+  overflow: hidden;
   ${({ isSelected }) =>
     isSelected &&
     css`
-      background-color: burlywood;
-      color: white;
-    `}
+      outline: 1px solid black;
+    `};
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 const LanguageSwitcher = () => {
@@ -36,15 +41,14 @@ const LanguageSwitcher = () => {
   return (
     <Div>
       <Btn isSelected={lng === 'lt'} onClick={() => setLng('lt')}>
-        <Typography fontSize={14}>LT</Typography>
+        <img src="/img/LT.svg" alt="" />
       </Btn>
       <Spacer xs={8} horizontal />
       <Btn isSelected={lng === 'en'} onClick={() => setLng('en')}>
-        <Typography fontSize={14}>EN</Typography>
+        <img src="/img/GB.svg" alt="" />
       </Btn>
     </Div>
   );
 };
 
 export default LanguageSwitcher;
-

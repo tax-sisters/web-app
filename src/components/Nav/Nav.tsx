@@ -4,19 +4,22 @@ import styled from 'styled-components';
 import { NavLink } from './comps';
 import LanguageSwitcher from '../LanguageSwitcher';
 import useTranslation from '@/hooks/useTranslation';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import useBreakpoints from '@/hooks/useBreakpoints';
 import { Sling } from 'hamburger-react';
 import { useEffect, useState } from 'react';
 import MobileNav from './MobileNav/MobileNav';
 import { motion } from 'framer-motion';
+import { gradient } from '@/util/theme';
+import { NAV_HEIGHT } from '../conf';
 
 const Div = styled.div`
   position: fixed;
   width: 100%;
   z-index: 100;
-  /* top: 0; */
-  height: 80px;
+  height: ${NAV_HEIGHT}px;
+  ${gradient()}
+
   .container {
     display: flex;
     justify-content: space-between;
@@ -45,31 +48,15 @@ const Nav: React.FC<NavProps> = () => {
   const router = useRouter();
   const { translate } = useTranslation();
   const isMd = useBreakpoints('md');
-  const [navHidden, setNavHidden] = useState(false);
+  const pathname = usePathname();
 
-  // const targetElement = useRef(document?.querySelector('body'));
-
-  // useEffect(() => {
-  //   const child = document.querySelector('body');
-
-  //   window.addEventListener('scroll', () => {
-  //     const pos = child?.getBoundingClientRect();
-
-  //     if (pos) {
-  //       console.log(pos.y);
-  //       if (pos.y !== 0) {
-  //         // if (pos.y !== 0) {
-  //         setNavHidden(true);
-  //       } else {
-  //         setNavHidden(false);
-  //       }
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   const scrollTrigger = useScrollTrigger({
     threshold: 100,
-    disableHysteresis: true
+    disableHysteresis: true,
   });
 
   useEffect(() => {
@@ -88,8 +75,6 @@ const Nav: React.FC<NavProps> = () => {
     }
   }, [isMobileMenuOpen]);
 
-  // console.log('scrollTrigger', scrollTrigger);
-
   return (
     <Slide direction="down" in={!scrollTrigger}>
       <Div>
@@ -104,7 +89,7 @@ const Nav: React.FC<NavProps> = () => {
                 <Sling
                   color={isMobileMenuOpen ? 'white' : 'black'}
                   toggled={isMobileMenuOpen}
-                  onToggle={(e) => setIsMobileMenuOpen(e)}
+                  onToggle={e => setIsMobileMenuOpen(e)}
                 />
               </div>
               {isMobileMenuOpen && <MobileNav />}
@@ -118,7 +103,6 @@ const Nav: React.FC<NavProps> = () => {
                 <NavLink title={translate('NAV_VSERVICES')} path="/visa-services" />
                 <NavLink title={translate('NAV_CONTACT')} path="/contact" />
               </div>
-
               <LanguageSwitcher />
             </>
           )}
@@ -129,4 +113,3 @@ const Nav: React.FC<NavProps> = () => {
 };
 
 export default Nav;
-
