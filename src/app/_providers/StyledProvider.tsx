@@ -1,8 +1,12 @@
 'use client';
 import theme from '@/util/theme';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 
 export const StyledProvider = ({ children }: { children: React.ReactNode }) => {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <StyleSheetManager shouldForwardProp={isPropValid}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </StyleSheetManager>
+  );
 };
-
