@@ -21,12 +21,12 @@ export const POST = async (req: NextRequest) => {
       Messages: [
         {
           From: {
-            Email: 'web-form@taxsistersltd.com',
+            Email: process.env.FROM_MAIL,
             Name: 'TAX SISTERS',
           },
           To: [
             {
-              Email: 'simaszurauskas@gmail.com',
+              Email: process.env.TO_MAIL,
               Name: 'TAX SISTERS',
             },
           ],
