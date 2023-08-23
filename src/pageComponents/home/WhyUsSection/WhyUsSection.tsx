@@ -1,6 +1,5 @@
 import Spacer from '@/components/Spacer';
 import { Sq1, Sq2, Sq3, Sq4 } from '@/components/animated/squares';
-import { ThemeColors } from '@/util/theme';
 import { Container, Typography } from '@mui/material';
 import styled from 'styled-components';
 import { Item } from './comps';
@@ -32,14 +31,21 @@ const Div = styled.div`
     grid-gap: 80px;
 
     &__left {
-      border: 1px solid blue;
+      /* border: 1px solid blue; */
       display: grid;
       grid-gap: 40px;
     }
 
     &__right {
       position: relative;
-      border: 1px solid green;
+      /* border: 1px solid green; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+      }
 
       .squares {
         width: 100%;
@@ -89,10 +95,11 @@ const WhyUsSection: React.FC<WhyUsSectionProps> = () => {
             ))}
           </div>
           <div className="content__right">
+            <img src="/img/why-us/spreadsheet.svg" alt="" />
             <div className="squares">
               <Sq4 left={-2} inViewPx={60} y={-60} />
               <Sq1 left={-2} inViewPx={60} y={-400} />
-              <Sq2 left={60} inViewPx={60} y={-480} />
+              <Sq2 left={60} inViewPx={60} y={-600} />
               <Sq3 left={84} inViewPx={60} y={-400} />
               <Sq4 left={100} inViewPx={60} y={-200} />
             </div>
