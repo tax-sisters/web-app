@@ -7,14 +7,17 @@ const mailjet = new Mailjet({
 });
 
 interface Body {
-  firstName: string;
-  lastName: string;
+  name: string;
+  email: string;
+  message: string;
 }
 
 export const POST = async (req: NextRequest) => {
   const body = (await req.json()) as Body;
 
-  console.log(body);
+  if (!body.name || !body.email || !body.message) {
+    return NextResponse.json({ message: 'Invalid request' }, { status: 400 });
+  }
 
   try {
     await mailjet.post('send', { version: 'v3.1' }).request({
@@ -32,12 +35,18 @@ export const POST = async (req: NextRequest) => {
           ],
           Subject: 'Web contact form',
           TextPart: 'My first Mailjet email',
-          HTMLPart:
-            '<h3>Dear passenger 1, welcome to <a href="https://www.mailjet.com/">Mailjet</a>!</h3><br />May the delivery force be with you!',
+          HTMLPart: `<p style="font-weight: bold;">NAME:</p>
+            <span>${body.name}<span>
+            <br />
+            <p style="font-weight: bold;">EMAIL:</p>
+            <span>${body.email}<span>
+            <br />
+            <p style="font-weight: bold;">MESSAGE:</p>
+            <span>${body.message}<span>`,
         },
       ],
     });
-    console.log('OK: ');
+
     return NextResponse.json({ message: 'OK' }, { status: 200 });
   } catch (error: any) {
     console.log('ERR: ', error.message);

@@ -1,5 +1,5 @@
+import { Sq4, Sq1, Sq2, Sq3 } from '@/components/animated/squares';
 import styled from 'styled-components';
-import { Sq1, Sq2, Sq3, Sq4 } from './squares';
 
 const Div = styled.div`
   width: 100%;

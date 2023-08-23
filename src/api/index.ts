@@ -9,22 +9,25 @@ const client = axios.create({
   baseURL: `api`,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  },
 });
 
 client.interceptors.response.use(
-  (response) => response,
-  (err) => Promise.reject(err.response?.data || err)
+  response => response,
+  err => Promise.reject(err.response?.data || err),
 );
 
-type SubmitForm = (a: { firstName: string; lastName: string }) => Promise<AxiosArgs<ThenArgs<AxiosResponse<any>>>>;
+type SubmitForm = (a: {
+  name: string;
+  email: string;
+  message: string;
+}) => Promise<AxiosArgs<ThenArgs<AxiosResponse<any>>>>;
 
-export const submitForm: SubmitForm = (data) => {
+export const submitForm: SubmitForm = data => {
   return client({
     url: `/webform`,
     method: 'POST',
-    data
-  }).then((res) => res.data.data);
+    data,
+  }).then(res => res.data.data);
 };
-

@@ -45,7 +45,7 @@ const Footer = () => {
         <div className="content">
           <div className="content__left">
             <Typography fontWeight={600} fontSize={20}>
-              TAX SISTERS
+              TAX SISTERS LTD
             </Typography>
             <Typography fontSize={20}>Company registration number: 13635805</Typography>
             <Spacer xs={40} />

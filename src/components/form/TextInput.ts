@@ -6,7 +6,7 @@ interface TextInputProps {
   error?: boolean;
 }
 
-export const TextInput = styled(TextField).attrs((p) => {
+export const TextInput = styled(TextField).attrs(p => {
   return { size: 'small', ...p };
 })<TextInputProps>`
   outline: none;
@@ -14,6 +14,7 @@ export const TextInput = styled(TextField).attrs((p) => {
   .MuiInputBase-root {
     background-color: white;
     border-radius: 0px;
+    min-height: 48px;
   }
 
   .MuiInputBase-multiline {
@@ -21,9 +22,13 @@ export const TextInput = styled(TextField).attrs((p) => {
     font-size: 14px !important;
   }
 
+  .MuiInputLabel-root {
+    top: 3px;
+  }
+
   input,
   textarea {
-    color: ${ThemeColors.PRIMARY};
+    /* color: ${ThemeColors.PRIMARY}; */
   }
 
   textarea {
@@ -65,4 +70,3 @@ export const TextInput = styled(TextField).attrs((p) => {
     }
   }
 `;
-

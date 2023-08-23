@@ -29,18 +29,13 @@ const baseTransition = { type: 'spring', damping: 60, stiffness: 200 };
 
 export const Sq1: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
-        transition: { ...baseTransition, ...transition },
-      });
-    } else {
-      controls.start({
-        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }
@@ -57,25 +52,20 @@ export const Sq1: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) =
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="1" y="1" width="57" height="57" rx="9" fill="#F7F4FD" stroke="#CECCCE" stroke-width="2" />
+      <rect x="1" y="1" width="57" height="57" rx="9" fill="#F7F4FD" stroke="#CECCCE" stroke-width="1" />
     </MotionSvg>
   );
 };
 
 export const Sq2: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
-        transition: { ...baseTransition, ...transition },
-      });
-    } else {
-      controls.start({
-        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }
@@ -92,25 +82,20 @@ export const Sq2: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) =
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="1" y="1" width="49" height="49" rx="9" fill="#E3F7FE" stroke="#CECCCE" stroke-width="2" />
+      <rect x="1" y="1" width="49" height="49" rx="9" fill="#E3F7FE" stroke="#CECCCE" stroke-width="1" />
     </MotionSvg>
   );
 };
 
 export const Sq3: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
-        transition: { ...baseTransition, ...transition },
-      });
-    } else {
-      controls.start({
-        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }
@@ -127,25 +112,20 @@ export const Sq3: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) =
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="1" y="1" width="73" height="73" rx="9" fill="#F4DEFE" stroke="#CECCCE" stroke-width="2" />
+      <rect x="1" y="1" width="73" height="73" rx="9" fill="#F4DEFE" stroke="#CECCCE" stroke-width="1" />
     </MotionSvg>
   );
 };
 
 export const Sq4: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
-        transition: { ...baseTransition, ...transition },
-      });
-    } else {
-      controls.start({
-        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }
@@ -162,7 +142,7 @@ export const Sq4: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) =
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="1" y="1" width="31" height="31" rx="8" fill="#F3D9FE" stroke="#CECCCE" stroke-width="2" />
+      <rect x="1" y="1" width="31" height="31" rx="8" fill="#F3D9FE" stroke="#CECCCE" stroke-width="1" />
     </MotionSvg>
   );
 };
