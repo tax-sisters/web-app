@@ -8,7 +8,7 @@ const Div = styled.div`
   .container {
     display: grid;
     grid-template-columns: 0.9fr 1fr;
-    grid-gap: 60px;
+    grid-gap: 120px;
 
     &__left {
       /* border: 1px solid red; */
@@ -34,7 +34,7 @@ const Div = styled.div`
 const IntroSection = () => {
   return (
     <Div>
-      <Spacer xs={100} />
+      <Spacer xs={200} />
       <Container className="container">
         <div className="container__left">
           <PC />
@@ -55,7 +55,7 @@ const IntroSection = () => {
           <Typography className="link">Read more...</Typography>
         </div>
       </Container>
-      <Spacer xs={100} />
+      <Spacer xs={150} />
     </Div>
   );
 };

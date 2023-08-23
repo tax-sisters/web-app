@@ -8,6 +8,7 @@ import Spacer from '../../../components/Spacer/Spacer';
 import { NAV_HEIGHT } from '../../../components/conf';
 import { Buttonas } from '../../../components/form';
 import Link from 'next/link';
+import useTranslation from '@/hooks/useTranslation';
 
 const Div = styled.div`
   min-height: 100vh;
@@ -32,6 +33,7 @@ const Div = styled.div`
 `;
 
 const Hero = () => {
+  const { translate } = useTranslation();
   return (
     <Div>
       <Spacer xs={NAV_HEIGHT} />
@@ -48,7 +50,7 @@ const Hero = () => {
             <Typography fontSize={26}>Tailored for You!</Typography>
             <Spacer xs={60} />
             <Link href="/contact" prefetch>
-              <Buttonas>CONTACT US</Buttonas>
+              <Buttonas>{translate('NAV_CONTACT').toUpperCase()}</Buttonas>
             </Link>
           </div>
           <div className="contents__right">

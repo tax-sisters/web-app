@@ -37,7 +37,7 @@ export const Service: React.FC<ServiceProps> = ({ title, description }) => {
         ${ThemeColors.PRIMARY} 100%
       )`,
       }}
-      transition={{ type: 'spring', stiffness: 150 }}
+      transition={{ type: 'spring', stiffness: 250, damping: 18 }}
       whileHover={{
         scale: 1.01,
         background: `linear-gradient(

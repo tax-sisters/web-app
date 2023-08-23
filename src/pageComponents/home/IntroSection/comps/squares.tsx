@@ -7,7 +7,7 @@ const Svg = styled.svg<{ left?: number }>`
   bottom: 0;
   left: 100%;
   left: ${({ left }) => (left ? `${left}%` : 'unset')};
-  /* z-index: -1; */
+  z-index: -1;
 `;
 
 const MotionSvg = motion(Svg);
@@ -25,17 +25,22 @@ interface SqProps {
   };
 }
 
-const baseTransition = { type: 'spring', damping: 40, stiffness: 200 };
+const baseTransition = { type: 'spring', damping: 60, stiffness: 200 };
 
 export const Sq1: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
+        transition: { ...baseTransition, ...transition },
+      });
+    } else {
+      controls.start({
+        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }
@@ -59,13 +64,18 @@ export const Sq1: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) =
 
 export const Sq2: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
+        transition: { ...baseTransition, ...transition },
+      });
+    } else {
+      controls.start({
+        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }
@@ -89,13 +99,18 @@ export const Sq2: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) =
 
 export const Sq3: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
+        transition: { ...baseTransition, ...transition },
+      });
+    } else {
+      controls.start({
+        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }
@@ -119,13 +134,18 @@ export const Sq3: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) =
 
 export const Sq4: React.FC<SqProps> = ({ left, inViewPx, y, transition = {} }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px` });
+  const inView = useInView(ref, { margin: `0px 0px ${inViewPx}px 0px`, once: true });
   const controls = useAnimation();
 
   useEffect(() => {
     if (inView) {
       controls.start({
         y,
+        transition: { ...baseTransition, ...transition },
+      });
+    } else {
+      controls.start({
+        y: 0,
         transition: { ...baseTransition, ...transition },
       });
     }

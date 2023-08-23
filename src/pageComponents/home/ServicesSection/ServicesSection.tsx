@@ -46,19 +46,19 @@ const services = [
 const ServicesSection = () => {
   return (
     <Div>
-      <Spacer xs={100} />
+      <Spacer xs={150} />
       <Container className="container">
         <Typography textAlign="center" fontSize={48} fontWeight={600}>
           SERVICES
         </Typography>
-        <Spacer xs={54} />
+        <Spacer xs={80} />
         <div className="services">
           {services.map((el, idx) => (
             <Service key={idx} title={el.title} description={el.description} />
           ))}
         </div>
       </Container>
-      <Spacer xs={100} />
+      <Spacer xs={150} />
     </Div>
   );
 };

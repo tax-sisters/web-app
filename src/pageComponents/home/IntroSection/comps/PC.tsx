@@ -17,11 +17,11 @@ export const PC = () => {
     <Div>
       <img src="img/pc.png" alt="" />
       <div className="squares">
-        <Sq4 left={-2} inViewPx={100} y={-350} />
-        <Sq1 left={2} inViewPx={100} y={-350} />
-        <Sq2 left={60} inViewPx={100} y={-350} />
-        <Sq3 left={75} inViewPx={100} y={-350} />
-        <Sq4 left={100} inViewPx={100} y={-350} />
+        <Sq4 left={-2} inViewPx={60} y={-60} />
+        <Sq1 left={-2} inViewPx={60} y={-400} />
+        <Sq2 left={60} inViewPx={60} y={-480} />
+        <Sq3 left={84} inViewPx={60} y={-400} />
+        <Sq4 left={100} inViewPx={60} y={-200} />
       </div>
     </Div>
   );
