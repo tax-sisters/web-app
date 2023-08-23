@@ -1,5 +1,5 @@
 'use client';
-import Hero from '@/components/Hero/Hero';
+import Hero from '@/pageComponents/home/Hero/Hero';
 import Spacer from '@/components/Spacer/Spacer';
 import IntroSection from '@/pageComponents/home/IntroSection';
 import ServicesSection from '@/pageComponents/home/ServicesSection';

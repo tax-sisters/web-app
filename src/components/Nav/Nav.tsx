@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import { NavLink } from './comps';
 import LanguageSwitcher from '../LanguageSwitcher';
 import useTranslation from '@/hooks/useTranslation';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import useBreakpoints from '@/hooks/useBreakpoints';
 import { Sling } from 'hamburger-react';
 import { useEffect, useState } from 'react';
 import MobileNav from './MobileNav/MobileNav';
-import { motion } from 'framer-motion';
 import { gradient } from '@/util/theme';
 import { NAV_HEIGHT } from '../conf';
+import Link from 'next/link';
 
 const Div = styled.div`
   position: fixed;
@@ -39,13 +39,10 @@ const Div = styled.div`
   }
 `;
 
-const MotionDiv = motion(Div);
-
 interface NavProps {}
 
 const Nav: React.FC<NavProps> = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const router = useRouter();
   const { translate } = useTranslation();
   const isMd = useBreakpoints('md');
   const pathname = usePathname();
@@ -80,9 +77,11 @@ const Nav: React.FC<NavProps> = () => {
       <Div>
         {/* <Div animate={{ y: navHidden ? -100 : 0 }} transition={{ type: 'spring', damping: 35, stiffness: 350 }}> */}
         <Container className="container">
-          <Typography style={{ color: 'white' }} fontWeight={600} onClick={() => router.push('/')}>
-            LOGO
-          </Typography>
+          <Link href="/" prefetch>
+            <Typography style={{ color: 'white' }} fontWeight={600}>
+              LOGO
+            </Typography>
+          </Link>
           {isMd ? (
             <>
               <div className="container__ham">

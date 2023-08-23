@@ -2,12 +2,13 @@ import Spacer from '@/components/Spacer';
 import { ThemeColors } from '@/util/theme';
 import { Container, Typography } from '@mui/material';
 import styled from 'styled-components';
+import { PC } from './comps/PC';
 
 const Div = styled.div`
   .container {
     display: grid;
-    grid-template-columns: 0.7fr 1fr;
-    grid-gap: 40px;
+    grid-template-columns: 0.9fr 1fr;
+    grid-gap: 60px;
 
     &__left {
       /* border: 1px solid red; */
@@ -36,7 +37,7 @@ const IntroSection = () => {
       <Spacer xs={100} />
       <Container className="container">
         <div className="container__left">
-          <img src="img/pc.png" alt="" />
+          <PC />
         </div>
         <div className="container__right">
           <Typography fontSize={48} fontWeight={600}>

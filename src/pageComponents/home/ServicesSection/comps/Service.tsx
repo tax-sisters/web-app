@@ -12,6 +12,10 @@ const Div = styled.div`
   .text {
     color: white;
   }
+
+  &:hover {
+    outline: 2px solid ${ThemeColors.GRAD_D};
+  }
 `;
 
 interface ServiceProps {
@@ -27,10 +31,10 @@ export const Service: React.FC<ServiceProps> = ({ title, description }) => {
       initial={{
         background: `linear-gradient(
         90deg,
-        ${ThemeColors.GRAD_A} 0%,
-        ${ThemeColors.GRAD_A} 34%,
-        ${ThemeColors.GRAD_A} 65%,
-        ${ThemeColors.GRAD_A} 100%
+        ${ThemeColors.PRIMARY} 0%,
+        ${ThemeColors.PRIMARY} 34%,
+        ${ThemeColors.PRIMARY} 65%,
+        ${ThemeColors.PRIMARY} 100%
       )`,
       }}
       transition={{ type: 'spring', stiffness: 150 }}
@@ -45,13 +49,7 @@ export const Service: React.FC<ServiceProps> = ({ title, description }) => {
       )`,
       }}
     >
-      <motion.div
-        whileHover={
-          {
-            //   scale: 1.03,
-          }
-        }
-      >
+      <motion.div>
         <Typography fontSize={26} className="text">
           {title}
         </Typography>

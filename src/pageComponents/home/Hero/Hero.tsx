@@ -4,19 +4,22 @@ import styled from 'styled-components';
 import Lottie from 'lottie-react';
 import heroAnimation from './hero.json';
 import { ThemeColors } from '@/util/theme';
-import Spacer from '../Spacer/Spacer';
-import { NAV_HEIGHT } from '../conf';
-import { Buttonas } from '../form';
+import Spacer from '../../../components/Spacer/Spacer';
+import { NAV_HEIGHT } from '../../../components/conf';
+import { Buttonas } from '../../../components/form';
+import Link from 'next/link';
 
 const Div = styled.div`
-  /* height: 700px; */
+  min-height: 100vh;
   background-color: ${ThemeColors.SECTION_GRAY};
   padding: 0 40px;
+  display: flex;
+  align-items: center;
 
   .contents {
     /* border: 1px solid red; */
     display: grid;
-    grid-template-columns: 1.1fr 2fr;
+    grid-template-columns: 1fr 2fr;
     /* grid-gap: 20px; */
 
     &__left {
@@ -44,7 +47,9 @@ const Hero = () => {
             <Typography fontSize={26}>Expert Accounting Services</Typography>
             <Typography fontSize={26}>Tailored for You!</Typography>
             <Spacer xs={60} />
-            <Buttonas>CONTACT US</Buttonas>
+            <Link href="/contact" prefetch>
+              <Buttonas>CONTACT US</Buttonas>
+            </Link>
           </div>
           <div className="contents__right">
             <Lottie animationData={heroAnimation} />

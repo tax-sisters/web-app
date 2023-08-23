@@ -2,7 +2,7 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import { createGlobalStyle, css } from 'styled-components';
 
 export enum ThemeColors {
-  PRIMARY = '#ED6C50',
+  PRIMARY = '#672B90',
   WHITE = '#FFFFFF',
   TEXT_BLACK = '#0E0E0F',
   SECTION_GRAY = '#F7F8FA',
@@ -21,7 +21,7 @@ const theme = createTheme({
   },
   components: {
     MuiButton: {
-      defaultProps: { disableRipple: true },
+      defaultProps: { disableRipple: false },
       styleOverrides: { root: { textTransform: 'none' } },
     },
   },

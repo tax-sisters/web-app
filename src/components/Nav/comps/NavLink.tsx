@@ -1,5 +1,6 @@
 import Spacer from '@/components/Spacer/Spacer';
 import { Typography } from '@mui/material';
+import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import styled from 'styled-components';
 
@@ -7,6 +8,10 @@ const Div = styled.div`
   margin: 0 20px;
   cursor: pointer;
   user-select: none;
+
+  .link {
+    text-decoration: none !important;
+  }
 
   .title {
     margin: 0 10px;
@@ -46,21 +51,18 @@ interface NavLinkProps {
 
 export const NavLink: React.FC<NavLinkProps> = ({ title, path }) => {
   const pathname = usePathname();
-  const router = useRouter();
-
-  const handleNavigate = () => {
-    router.push(path);
-  };
 
   const isActive = pathname === path;
 
   return (
-    <Div onClick={handleNavigate}>
-      <Typography textAlign="center" className="title">
-        {title}
-      </Typography>
-      <Spacer xs={5} />
-      <div className="marker-container">{isActive && <div className="marker-container__marker"></div>}</div>
+    <Div>
+      <Link href={path} prefetch className="link">
+        <Typography textAlign="center" className="title">
+          {title}
+        </Typography>
+        <Spacer xs={5} />
+        <div className="marker-container">{isActive && <div className="marker-container__marker"></div>}</div>
+      </Link>
     </Div>
   );
 };
