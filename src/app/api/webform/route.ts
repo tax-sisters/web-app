@@ -30,11 +30,11 @@ export const POST = async (req: NextRequest) => {
           To: [
             {
               Email: process.env.TO_MAIL,
-              Name: 'TAX SISTERS',
+              Name: 'Admin',
             },
           ],
           Subject: 'Web contact form',
-          TextPart: 'My first Mailjet email',
+          TextPart: '',
           HTMLPart: `<p style="font-weight: bold;">NAME:</p>
             <span>${body.name}<span>
             <br />

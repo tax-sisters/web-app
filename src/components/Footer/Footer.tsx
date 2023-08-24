@@ -34,7 +34,7 @@ const Foot = styled.footer`
 `;
 
 const tel = '+123456789';
-const mail = 'simaszurauskas@gmail.com';
+const mail = 'admin@taxsisters.co.uk';
 const location = 'Birmingham, UK';
 
 const Footer = () => {
