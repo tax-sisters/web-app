@@ -1,8 +1,8 @@
 'use client';
-import { Button, Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import styled from 'styled-components';
 import Lottie from 'lottie-react';
-import heroAnimation from './hero.json';
+import heroAnimation from '@/lottie/hero.json';
 import { ThemeColors } from '@/util/theme';
 import Spacer from '../../../components/Spacer/Spacer';
 import { NAV_HEIGHT } from '../../../components/conf';
@@ -14,21 +14,38 @@ import { motion } from 'framer-motion';
 const Div = styled.div`
   min-height: 100vh;
   background-color: ${ThemeColors.SECTION_GRAY};
-  padding: 0 40px;
+  padding: 40px 40px;
   display: flex;
   align-items: center;
 
   .contents {
-    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: 1fr 2fr;
-    /* grid-gap: 20px; */
 
     &__left {
       /* border: 1px solid red; */
     }
     &__right {
       /* border: 1px solid blue; */
+    }
+  }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    min-height: 800px;
+    padding-top: 100px !important;
+    .header {
+      font-size: 40px;
+    }
+    .contents {
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+    }
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding: 40px 10px;
+    .header {
+      font-size: 30px;
     }
   }
 `;
@@ -41,7 +58,7 @@ const Hero = () => {
       <Container>
         <motion.div initial={{ y: 5, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
           <Spacer xs={65} />
-          <Typography fontSize={60} fontWeight={600}>
+          <Typography fontSize={60} fontWeight={600} className="header">
             EMPOWERING YOUR FINANCES
           </Typography>
           <Spacer xs={26} />

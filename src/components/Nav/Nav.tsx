@@ -26,9 +26,15 @@ const Div = styled.div`
     align-items: center;
     height: 100%;
 
+    &__logo {
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+    }
+
     &__ham {
       position: relative;
       z-index: 100;
+      -webkit-tap-highlight-color: transparent;
     }
 
     &--nav-links {
@@ -77,7 +83,7 @@ const Nav: React.FC<NavProps> = () => {
       <Div>
         {/* <Div animate={{ y: navHidden ? -100 : 0 }} transition={{ type: 'spring', damping: 35, stiffness: 350 }}> */}
         <Container className="container">
-          <Link href="/" prefetch>
+          <Link href="/" prefetch className="container__logo">
             <Typography style={{ color: 'white' }} fontWeight={600}>
               LOGO
             </Typography>
@@ -85,11 +91,7 @@ const Nav: React.FC<NavProps> = () => {
           {isMd ? (
             <>
               <div className="container__ham">
-                <Sling
-                  color={isMobileMenuOpen ? 'white' : 'black'}
-                  toggled={isMobileMenuOpen}
-                  onToggle={e => setIsMobileMenuOpen(e)}
-                />
+                <Sling color={'white'} toggled={isMobileMenuOpen} onToggle={e => setIsMobileMenuOpen(e)} />
               </div>
               {isMobileMenuOpen && <MobileNav />}
             </>

@@ -19,7 +19,7 @@ const Forma = styled.form`
   flex: 1;
   padding: 50px 98px;
   filter: drop-shadow(0px 0px 10px rgba(7, 46, 91, 0.15));
-  margin: 20px 0;
+  margin: 100px 0;
 
   .btn-container {
     display: flex;
@@ -28,6 +28,18 @@ const Forma = styled.form`
 
   .great-success {
     color: #1a7a83;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    /* .header {
+      font-size: 36px;
+    } */
+  }
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    padding: 50px 28px;
+    .header {
+      font-size: 30px;
+    }
   }
 `;
 
@@ -71,7 +83,7 @@ const Form = () => {
   return (
     <motion.div style={{ position: 'relative' }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
       <Forma onSubmit={handleSubmit}>
-        <Typography fontSize={48} fontWeight={600} textAlign="center">
+        <Typography fontSize={48} fontWeight={600} textAlign="center" className="header">
           CONTACT US
         </Typography>
         <Spacer xs={43} />

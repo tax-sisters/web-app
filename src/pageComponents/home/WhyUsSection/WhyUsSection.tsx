@@ -54,6 +54,35 @@ const Div = styled.div`
       }
     }
   }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    .content {
+      grid-template-columns: 1fr;
+      grid-gap: 60px;
+      &__left {
+        grid-gap: 0px;
+      }
+      &__right {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+    .header {
+      height: 140px;
+      p {
+        font-size: 40px;
+      }
+    }
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    .header {
+      height: 100px;
+      p {
+        font-size: 30px;
+      }
+    }
+  }
 `;
 
 const whyList = [
@@ -86,7 +115,7 @@ const WhyUsSection: React.FC<WhyUsSectionProps> = () => {
         </Typography>
         <div className="header__arrow" />
       </div>
-      <Spacer xs={100} />
+      <Spacer xs={70} md={100} />
       <Container>
         <div className="content">
           <div className="content__left">

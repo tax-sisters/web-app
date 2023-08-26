@@ -3,6 +3,7 @@ import { NavLink } from './../comps';
 import useTranslation from '@/hooks/useTranslation';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Spacer from '@/components/Spacer/Spacer';
+import { gradient } from '@/util/theme';
 
 const Div = styled.div`
   position: fixed;
@@ -13,6 +14,7 @@ const Div = styled.div`
   height: 100vh;
   z-index: 1;
   padding: 30px 40px 40px 40px;
+  ${gradient()}
 `;
 
 interface MobileNavProps {}

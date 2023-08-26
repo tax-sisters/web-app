@@ -1,4 +1,5 @@
 import { Sq4, Sq1, Sq2, Sq3 } from '@/components/animated/squares';
+import useBreakpoints from '@/hooks/useBreakpoints';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -10,12 +11,19 @@ const Div = styled.div`
     position: absolute;
     width: 100%;
   }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    .squares {
+      display: none;
+    }
+  }
 `;
 
 export const PC = () => {
+  const isMd = useBreakpoints('md');
   return (
     <Div>
-      <img src="img/pc.png" alt="" />
+      <img src={`img/${isMd ? 'pc-mobile' : 'pc'}.png`} alt="" />
       <div className="squares">
         <Sq4 left={-2} inViewPx={60} y={-60} />
         <Sq1 left={-2} inViewPx={60} y={-400} />

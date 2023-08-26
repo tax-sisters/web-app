@@ -7,9 +7,22 @@ const Div = styled.div`
   display: flex;
   align-items: center;
   color: #320543;
+  /* justify-content: center; */
   img {
     max-height: 100%;
     margin-right: 40px;
+  }
+
+  .title {
+    width: 150px;
+  }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    justify-content: center;
+    img {
+      max-height: 60%;
+      margin-right: 40px;
+    }
   }
 `;
 
@@ -41,7 +54,7 @@ export const Item: React.FC<ItemProps> = ({ src, title }) => {
   return (
     <MotionDiv ref={ref} initial={{ y: 150, opacity: 0, scale: 0.95 }} animate={controls}>
       <img src={src} />
-      <Typography fontSize={26} fontWeight={600}>
+      <Typography fontSize={26} fontWeight={600} className="title">
         {title}
       </Typography>
     </MotionDiv>

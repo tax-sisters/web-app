@@ -11,6 +11,23 @@ const Div = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 24px;
   }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    .services {
+      grid-template-columns: 1fr 1fr;
+    }
+    .header {
+      font-size: 40px;
+    }
+  }
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    .services {
+      grid-template-columns: 1fr;
+    }
+    .header {
+      font-size: 30px;
+    }
+  }
 `;
 
 const services = [
@@ -46,19 +63,19 @@ const services = [
 const ServicesSection = () => {
   return (
     <Div>
-      <Spacer xs={150} />
+      <Spacer xs={100} md={150} />
       <Container className="container">
-        <Typography textAlign="center" fontSize={48} fontWeight={600}>
+        <Typography textAlign="center" fontSize={48} fontWeight={600} className="header">
           SERVICES
         </Typography>
-        <Spacer xs={80} />
+        <Spacer xs={60} md={80} />
         <div className="services">
           {services.map((el, idx) => (
             <Service key={idx} title={el.title} description={el.description} />
           ))}
         </div>
       </Container>
-      <Spacer xs={150} />
+      <Spacer xs={100} md={150} />
     </Div>
   );
 };

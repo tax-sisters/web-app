@@ -12,6 +12,10 @@ export const Buttonas = styled(Button).attrs(p => {
   font-size: 18px !important;
   font-weight: 600 !important;
 
+  &.Mui-disabled {
+    background: gray !important;
+  }
+
   &:hover {
     background: linear-gradient(90deg, #22a6b3 0%, #22a6b3 34%, #22a6b3 65%, #22a6b3 100%);
   }

@@ -8,6 +8,7 @@ const Div = styled.div`
   margin: 0 20px;
   cursor: pointer;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 
   .link {
     text-decoration: none !important;

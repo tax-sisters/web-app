@@ -4,6 +4,7 @@ import { Container, Typography } from '@mui/material';
 import styled from 'styled-components';
 import Spacer from '../Spacer';
 import Link from 'next/link';
+import { TELEPHONE } from '@/constants';
 
 const Foot = styled.footer`
   background-color: ${ThemeColors.SECTION_GRAY};
@@ -23,7 +24,7 @@ const Foot = styled.footer`
           align-items: center;
           justify-content: center;
         }
-        .link {
+        .no-style-link {
           color: ${ThemeColors.TEXT_BLACK} !important;
         }
       }
@@ -33,7 +34,6 @@ const Foot = styled.footer`
   }
 `;
 
-const tel = '+123456789';
 const mail = 'admin@taxsisters.co.uk';
 const location = 'Birmingham, UK';
 
@@ -53,15 +53,15 @@ const Footer = () => {
               <div className="content__left__link__icon">
                 <img src="/img/footer-phone.svg" alt="" />
               </div>
-              <Link href={`tel:${tel}`} className="link">
-                <Typography fontSize={20}>{tel}</Typography>
+              <Link href={`tel:${TELEPHONE}`} className="no-style-link">
+                <Typography fontSize={20}>{TELEPHONE}</Typography>
               </Link>
             </div>
             <div className="content__left__link">
               <div className="content__left__link__icon">
                 <img src="/img/footer-mail.svg" alt="" />
               </div>
-              <Link href={`mailto:${mail}`} className="link">
+              <Link href={`mailto:${mail}`} className="no-style-link">
                 <Typography fontSize={20}>{mail}</Typography>
               </Link>
             </div>

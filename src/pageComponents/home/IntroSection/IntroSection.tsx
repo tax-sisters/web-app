@@ -3,6 +3,7 @@ import { ThemeColors } from '@/util/theme';
 import { Container, Typography } from '@mui/material';
 import styled from 'styled-components';
 import { PC } from './comps/PC';
+import useBreakpoints from '@/hooks/useBreakpoints';
 
 const Div = styled.div`
   .container {
@@ -29,18 +30,46 @@ const Div = styled.div`
       color: ${ThemeColors.GRAD_A};
     }
   }
+
+  ${({ theme }) => theme.breakpoints.down('md')} {
+    .container {
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+
+      &__left {
+        max-width: 400px;
+      }
+
+      .grid1 {
+        margin: 0 auto;
+        grid-row: 2;
+      }
+
+      .header {
+        font-size: 40px;
+      }
+    }
+  }
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    .container {
+      .header {
+        font-size: 30px;
+      }
+    }
+  }
 `;
 
 const IntroSection = () => {
   return (
     <Div>
-      <Spacer xs={200} />
+      <Spacer xs={80} md={200} />
       <Container className="container">
-        <div className="container__left">
+        <div className="container__left grid1">
           <PC />
         </div>
-        <div className="container__right">
-          <Typography fontSize={48} fontWeight={600}>
+        <div className="container__right grid2">
+          <Typography fontSize={48} fontWeight={600} className="header">
             HEADING
           </Typography>
           <Spacer xs={35} />
@@ -55,7 +84,7 @@ const IntroSection = () => {
           <Typography className="link">Read more...</Typography>
         </div>
       </Container>
-      <Spacer xs={150} />
+      <Spacer xs={80} md={150} />
     </Div>
   );
 };
