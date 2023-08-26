@@ -9,6 +9,7 @@ import Spacer from '@/components/Spacer/Spacer';
 import Link from 'next/link';
 import { TELEPHONE } from '@/constants';
 import { ThemeColors } from '@/util/theme';
+import useTranslation from '@/hooks/useTranslation';
 
 const Div = styled.div`
   background-color: white;
@@ -42,13 +43,15 @@ const Div = styled.div`
   }
 `;
 
+const position = [52.40821, -1.8303];
+
 const Map = () => {
-  const position = [52.40821, -1.8303];
+  const { translate } = useTranslation();
 
   return (
     <Div>
       <Typography textAlign={'center'} fontWeight={600} fontSize={28}>
-        We are based in the UK
+        {translate('CONTACT_MAP_TITLE')}
       </Typography>
       <Spacer xs={30} />
       <div className="containerx">
@@ -71,7 +74,7 @@ const Map = () => {
         </div>
         <Spacer xs={44} />
         <Typography fontWeight={600} fontSize={24}>
-          Call us on
+          {translate('CONTACT_CALL_US')}
         </Typography>
         <Spacer xs={5} />
         <div className="link">

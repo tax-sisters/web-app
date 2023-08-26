@@ -8,6 +8,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
 import { submitForm } from '@/api';
+import useTranslation from '@/hooks/useTranslation';
 
 const Forma = styled.form`
   position: relative;
@@ -58,6 +59,7 @@ const validationSchema = Yup.object({
 const Form = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [err, setErr] = useState(false);
+  const { translate } = useTranslation();
 
   const { values, handleBlur, handleChange, handleSubmit, resetForm, touched, errors, isValid, isSubmitting } =
     useFormik({
@@ -84,13 +86,13 @@ const Form = () => {
     <motion.div style={{ position: 'relative' }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
       <Forma onSubmit={handleSubmit}>
         <Typography fontSize={48} fontWeight={600} textAlign="center" className="header">
-          CONTACT US
+          {translate('FORM_CONTACT_US')}
         </Typography>
         <Spacer xs={43} />
         <Typography fontSize={18}>Lorem ipsum dolor sit amet consectetur. Tristique dolor tincidunt feugiat</Typography>
         <Spacer xs={48} />
         <TextInput
-          label="Your name"
+          label={translate('FORM_NAME')}
           fullWidth
           id="name"
           required
@@ -102,7 +104,7 @@ const Form = () => {
         />
         <Spacer xs={30} />
         <TextInput
-          label="Your email"
+          label={translate('FORM_EMAIL')}
           fullWidth
           type="email"
           required
@@ -115,7 +117,7 @@ const Form = () => {
         />
         <Spacer xs={30} />
         <TextInput
-          label="Your message"
+          label={translate('FORM_MESSAGE')}
           multiline
           minRows={3}
           fullWidth
@@ -129,13 +131,13 @@ const Form = () => {
         />
         <Spacer xs={6} />
         <Typography textAlign="center" fontSize={12}>
-          Your email will be used for communication purposes only.
+          {translate('FORM_DISCLAIMER')}
         </Typography>
         <Spacer xs={35} />
         {err && (
           <>
             <Typography color="error" textAlign={'center'}>
-              Oops, there was an error...
+              {translate('FORM_ERROR')}
             </Typography>
             <Spacer xs={35} />
           </>
@@ -143,17 +145,17 @@ const Form = () => {
         {isSuccess && (
           <>
             <Typography className="great-success" textAlign={'center'}>
-              Thank you!
+              {translate('FORM_THANK_YOU')}
             </Typography>
             <Typography className="great-success" textAlign={'center'}>
-              Your message has been submitted successfully.
+              {translate('FORM_SUCCESS')}
             </Typography>
             <Spacer xs={35} />
           </>
         )}
         <div className="btn-container">
           <Buttonas type="submit" disabled={!isValid || isSubmitting}>
-            SUBMIT
+            {translate('FORM_SEND')}
           </Buttonas>
         </div>
         <Spacer xs={10} />

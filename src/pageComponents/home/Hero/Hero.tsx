@@ -10,6 +10,7 @@ import { Buttonas } from '../../../components/form';
 import Link from 'next/link';
 import useTranslation from '@/hooks/useTranslation';
 import { motion } from 'framer-motion';
+import { useStateSelector } from '@/state';
 
 const Div = styled.div`
   min-height: 100vh;
@@ -52,6 +53,7 @@ const Div = styled.div`
 
 const Hero = () => {
   const { translate } = useTranslation();
+  const isLt = useStateSelector(({ app }) => app.lng === 'lt');
   return (
     <Div>
       <Spacer xs={NAV_HEIGHT} />
@@ -59,14 +61,23 @@ const Hero = () => {
         <motion.div initial={{ y: 5, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
           <Spacer xs={65} />
           <Typography fontSize={60} fontWeight={600} className="header">
-            EMPOWERING YOUR FINANCES
+            {translate('HERO_TITLE')}
           </Typography>
           <Spacer xs={26} />
 
           <div className="contents">
             <div className="contents__left">
-              <Typography fontSize={26}>Expert Accounting Services</Typography>
-              <Typography fontSize={26}>Tailored for You!</Typography>
+              {isLt ? (
+                <>
+                  <Typography fontSize={26}>Ekspertų apskaitos paslaugos</Typography>
+                  <Typography fontSize={26}>Pritaikytos jums!</Typography>
+                </>
+              ) : (
+                <>
+                  <Typography fontSize={26}>Expert Accounting Services</Typography>
+                  <Typography fontSize={26}>Tailored for You!</Typography>
+                </>
+              )}
               <Spacer xs={60} />
               <Link href="/contact" prefetch>
                 <Buttonas>{translate('NAV_CONTACT').toUpperCase()}</Buttonas>

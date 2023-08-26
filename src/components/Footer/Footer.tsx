@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Spacer from '../Spacer';
 import Link from 'next/link';
 import { TELEPHONE } from '@/constants';
+import useTranslation from '@/hooks/useTranslation';
 
 const Foot = styled.footer`
   background-color: ${ThemeColors.SECTION_GRAY};
@@ -38,6 +39,7 @@ const mail = 'admin@taxsisters.co.uk';
 const location = 'Birmingham, UK';
 
 const Footer = () => {
+  const { translate } = useTranslation();
   return (
     <Foot>
       <Spacer xs={76} />
@@ -47,7 +49,7 @@ const Footer = () => {
             <Typography fontWeight={600} fontSize={20}>
               TAX SISTERS LTD
             </Typography>
-            <Typography fontSize={20}>Company registration number: 13635805</Typography>
+            <Typography fontSize={20}>{translate('FOOTER_CRN')}: 13635805</Typography>
             <Spacer xs={40} />
             <div className="content__left__link">
               <div className="content__left__link__icon">
@@ -78,9 +80,7 @@ const Footer = () => {
           </div> */}
         </div>
         <Spacer xs={50} />
-        <Typography textAlign="center">
-          Copyright {new Date().getFullYear()} © Tax Sisters Ltd. All rights reserved.
-        </Typography>
+        <Typography textAlign="center">{translate('FOOTER_LEGAL')}</Typography>
       </Container>
       <Spacer xs={20} />
     </Foot>
