@@ -32,31 +32,37 @@ const Div = styled.div`
 
 const services = [
   {
-    title: 'Accounting',
+    title: 'Business Start-Up',
     description:
       'Lorem ipsum dolor sit amet consectetur. Varius aliquam vitae sed non lobortis enim mauris consequat. Ac dolor elementum nulla pellentesque.',
+    anchorId: 'business-startup',
+  },
+  {
+    title: 'Accounting',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+    anchorId: 'accounting',
   },
   {
     title: 'Bookkeeping',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
-  },
-  {
-    title: 'Accounting - 1',
     description:
       'Lorem ipsum dolor sit amet consectetur. Varius aliquam vitae sed non lobortis enim mauris consequat. Ac dolor elementum nulla pellentesque.',
+    anchorId: 'bookkeeping',
   },
   {
-    title: 'Bookkeeping - 1',
+    title: 'Payroll',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+    anchorId: 'payroll',
   },
   {
-    title: 'Accounting - 2',
+    title: 'Business Support',
     description:
       'Lorem ipsum dolor sit amet consectetur. Varius aliquam vitae sed non lobortis enim mauris consequat. Ac dolor elementum nulla pellentesque.',
+    anchorId: 'business-support',
   },
   {
-    title: 'Bookkeeping - 2',
+    title: 'Business Tax',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.',
+    anchorId: 'business-tax',
   },
 ];
 
@@ -71,7 +77,7 @@ const ServicesSection = () => {
         <Spacer xs={60} md={80} />
         <div className="services">
           {services.map((el, idx) => (
-            <Service key={idx} title={el.title} description={el.description} />
+            <Service key={idx} title={el.title} description={el.description} anchorId={el.anchorId} />
           ))}
         </div>
       </Container>

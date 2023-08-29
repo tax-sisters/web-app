@@ -51,8 +51,6 @@ const Squares = styled.div`
   z-index: 0;
 `;
 
-const MotionContainer = motion(Container);
-
 const ContactPage = () => {
   const { translate } = useTranslation();
   const isMd = useBreakpoints('md');

@@ -42,6 +42,7 @@ const Div = styled.div<StyleProps>`
   }
 
   ${({ theme }) => theme.breakpoints.down('md')} {
+    padding-top: 50px;
     min-height: 800px;
     .container {
       grid-template-columns: 1fr;

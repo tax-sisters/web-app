@@ -3,6 +3,7 @@ import { ThemeColors } from '@/util/theme';
 import { Typography } from '@mui/material';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const Div = styled.div`
   padding: 45px 30px;
@@ -16,16 +17,21 @@ const Div = styled.div`
   &:hover {
     outline: 2px solid ${ThemeColors.GRAD_D};
   }
+
+  .link {
+    text-decoration: none;
+  }
 `;
 
 interface ServiceProps {
   title: string;
   description: string;
+  anchorId: string;
 }
 
 const MotionDiv = motion(Div);
 
-export const Service: React.FC<ServiceProps> = ({ title, description }) => {
+export const Service: React.FC<ServiceProps> = ({ title, description, anchorId }) => {
   return (
     <MotionDiv
       initial={{
@@ -49,15 +55,17 @@ export const Service: React.FC<ServiceProps> = ({ title, description }) => {
       )`,
       }}
     >
-      <motion.div>
-        <Typography fontSize={26} className="text">
-          {title}
-        </Typography>
-        <Spacer xs={25} />
-        <Typography fontSize={16} className="text">
-          {description}
-        </Typography>
-      </motion.div>
+      <Link href={`/business-services?id=${anchorId}`} className="link">
+        <motion.div>
+          <Typography fontSize={26} className="text">
+            {title}
+          </Typography>
+          <Spacer xs={25} />
+          <Typography fontSize={16} className="text">
+            {description}
+          </Typography>
+        </motion.div>
+      </Link>
     </MotionDiv>
   );
 };
