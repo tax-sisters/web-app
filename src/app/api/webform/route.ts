@@ -9,6 +9,7 @@ const mailjet = new Mailjet({
 interface Body {
   name: string;
   email: string;
+  phone: string;
   message: string;
 }
 
@@ -41,6 +42,8 @@ export const POST = async (req: NextRequest) => {
             <p style="font-weight: bold;">EMAIL:</p>
             <span>${body.email}<span>
             <br />
+            <p style="font-weight: bold;">PHONE:</p>
+            <span>${body.phone || 'NA'}<span>
             <p style="font-weight: bold;">MESSAGE:</p>
             <span>${body.message}<span>`,
         },

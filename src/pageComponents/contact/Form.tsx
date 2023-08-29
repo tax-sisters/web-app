@@ -1,8 +1,6 @@
 import Spacer from '@/components/Spacer/Spacer';
-import { Sq1, Sq2, Sq3, Sq4 } from '@/components/animated/squares';
 import { Buttonas, TextInput } from '@/components/form';
 import { Typography } from '@mui/material';
-import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -13,18 +11,17 @@ import useTranslation from '@/hooks/useTranslation';
 const Forma = styled.form`
   position: relative;
   z-index: 1;
-  border: 1px solid #ceccce;
   background-color: #f7f8fa;
-  border-radius: 25px;
-  max-width: 675px;
   flex: 1;
-  padding: 50px 98px;
-  filter: drop-shadow(0px 0px 10px rgba(7, 46, 91, 0.15));
-  margin: 100px 0;
+  padding: 50px 65px 50px 55px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .btn-container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
   }
 
   .great-success {
@@ -39,20 +36,15 @@ const Forma = styled.form`
   ${({ theme }) => theme.breakpoints.down('sm')} {
     padding: 50px 28px;
     .header {
-      font-size: 30px;
+      font-size: 22px;
     }
   }
-`;
-
-const Squares = styled.div`
-  position: relative;
-  z-index: 0;
-  width: 100%;
 `;
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Required').max(50, 'Max 50 characters'),
   email: Yup.string().required('Required').email('Invalid email address').max(50, 'Max 50 characters'),
+  phone: Yup.string().min(8, 'Min 8 characters').max(20, 'Max 20 characters'),
   message: Yup.string().required('Required').max(500, 'Max 500 characters'),
 });
 
@@ -66,6 +58,7 @@ const Form = () => {
       initialValues: {
         name: '',
         email: '',
+        phone: '',
         message: '',
       },
       validationSchema,
@@ -83,14 +76,12 @@ const Form = () => {
     });
 
   return (
-    <motion.div style={{ position: 'relative' }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+    <div style={{ position: 'relative' }}>
       <Forma onSubmit={handleSubmit}>
-        <Typography fontSize={48} fontWeight={600} textAlign="center" className="header">
-          {translate('FORM_CONTACT_US')}
+        <Typography fontSize={36} fontWeight={600} className="header">
+          Send us a message
         </Typography>
-        <Spacer xs={43} />
-        <Typography fontSize={18}>Lorem ipsum dolor sit amet consectetur. Tristique dolor tincidunt feugiat</Typography>
-        <Spacer xs={48} />
+        <Spacer xs={20} />
         <TextInput
           label={translate('FORM_NAME')}
           fullWidth
@@ -117,6 +108,17 @@ const Form = () => {
         />
         <Spacer xs={30} />
         <TextInput
+          label={translate('FORM_PHONE')}
+          fullWidth
+          id="phone"
+          value={values.phone}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          error={touched.phone && Boolean(errors.phone)}
+          helperText={touched.phone && errors.phone}
+        />
+        <Spacer xs={30} />
+        <TextInput
           label={translate('FORM_MESSAGE')}
           multiline
           minRows={3}
@@ -130,9 +132,7 @@ const Form = () => {
           helperText={touched.message && errors.message}
         />
         <Spacer xs={6} />
-        <Typography textAlign="center" fontSize={12}>
-          {translate('FORM_DISCLAIMER')}
-        </Typography>
+        <Typography fontSize={12}>{translate('FORM_DISCLAIMER')}</Typography>
         <Spacer xs={35} />
         {err && (
           <>
@@ -154,24 +154,13 @@ const Form = () => {
           </>
         )}
         <div className="btn-container">
-          <Buttonas type="submit" disabled={!isValid || isSubmitting}>
+          <Buttonas small type="submit" disabled={!isValid || isSubmitting}>
             {translate('FORM_SEND')}
           </Buttonas>
         </div>
         <Spacer xs={10} />
       </Forma>
-      <Squares>
-        {/* left */}
-        <Sq2 left={-22} inViewPx={0} y={-350} />
-        <Sq4 left={-10} inViewPx={0} y={-660} />
-        <Sq1 left={-7} inViewPx={0} y={-500} />
-        <Sq3 left={-15} inViewPx={0} y={-200} />
-        {/* right */}
-        <Sq3 left={102} inViewPx={0} y={-100} />
-        <Sq4 left={102} inViewPx={0} y={-500} />
-        <Sq2 left={109} inViewPx={0} y={-250} />
-      </Squares>
-    </motion.div>
+    </div>
   );
 };
 

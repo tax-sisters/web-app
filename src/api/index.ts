@@ -21,6 +21,7 @@ client.interceptors.response.use(
 type SubmitForm = (a: {
   name: string;
   email: string;
+  phone: string;
   message: string;
 }) => Promise<AxiosArgs<ThenArgs<AxiosResponse<any>>>>;
 
